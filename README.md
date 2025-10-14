@@ -26,7 +26,7 @@ Self-hosted single-node Kubernetes lab built on a Dell Wyse 5070 thin client for
 ## 📚 Documentation
 - 🧠 [hardware/wyse5070.md](hardware/wyse5070.md) — specs, installation steps
 - 💽 [setup/ubuntu-install.md](setup/ubuntu-install.md) — clean 24.04 install
--   [setup/microk8s-install.md](setup/microk8s-install.md) — commands & add-ons
+- ☸️ [setup/microk8s-install.md](setup/microk8s-install.md) — commands & add-ons
 - 🔑 [setup/network-ssh.md](setup/network-ssh.md) — SSH setup, firewall
 
 ## Status / Changelog
