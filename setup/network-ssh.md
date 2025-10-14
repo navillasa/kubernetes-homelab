@@ -42,3 +42,23 @@ PermitRootLogin no
 Then ran:
 ```
 sudo systemctl restart ssh
+
+## Set up unattended upgrades
+Automate security patches.
+```
+sudo apt update && sudo apt install unattended-upgrades -y
+sudo dpkg-reconfigure --priority=low unattended-upgrades
+
+Check config later at:
+`/etc/apt/apt.conf.d/50unattended-upgrades`
+
+## Set up fail2ban
+Protect SSH by rate-limiting.
+```
+sudo apt update && sudo apt install fail2ban -y
+sudo systemctl enable --now fail2ban
+sudo systemctl status fail2ban
+
+View logs:
+```
+sudo fail2ban-client status sshd
