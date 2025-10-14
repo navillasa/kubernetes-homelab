@@ -29,3 +29,16 @@ sudo apt install ufw -y
 sudo ufw allow OpenSSH
 sudo ufw enable
 sudo ufw status
+
+## Secure SSH
+```
+sudo vi /etc/ssh/ssd_config
+
+Uncommented and edited:
+```
+PasswordAuthentication no
+PermitRootLogin no
+
+Then ran:
+```
+sudo systemctl restart ssh
