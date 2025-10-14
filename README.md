@@ -23,10 +23,15 @@ Self-hosted single-node Kubernetes lab built on a Dell Wyse 5070 thin client for
 - MicroK8s 1.32 +
 - SSH hardened with UFW
 
-## Current Projects
-- [TV Dashboard K8s](https://github.com/navillasa/tv-dashboard-k8s)
+## Repo Map
+- `hardware/wyse5070.md` — specs, installation steps
+- `setup/ubuntu-install.md` — clean 24.04 install
+- `setup/microk8s-install.md` — commands & add-ons
+- `setup/network-ssh.md` — SSH setup, firewall
 
-## Next Steps
-- Add Prometheus + Grafana
-- Deploy Tailscale for remote access
+## Status / Changelog
+- 2025-10-14: Base install complete, ssh from laptop, microk8s up.
 
+## Next
+- Deploy [TV Dashboard K8s](https://github.com/navillasa/tv-dashboard-k8s)
+- Setup backups, Tailscale for remote access
