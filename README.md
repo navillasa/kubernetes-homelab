@@ -1,12 +1,12 @@
-# 😶‍🌫️ Homelab
+# ✨😶‍🌫️ Kubernetes Homelab — Wyse 5070 + Ubuntu + MicroK8s
 
 ![Ubuntu 24.04](https://img.shields.io/badge/Ubuntu-24.04-orange?logo=ubuntu)
-![MicroK8s](https://img.shields.io/badge/MicroK8s-1.30%2B-blue?logo=kubernetes)
+![MicroK8s](https://img.shields.io/badge/MicroK8s-1.32%2B-blue?logo=kubernetes)
 
 <p align="center">
-  <img src="photos/dell_wyse.jpg" width="30%">
-  <img src="photos/inside_case.jpg" width="30%">
-  <img src="photos/ram_upgrade.png" width="30%">
+  <img src="photos/dell_wyse.jpg" height="200">
+  <img src="photos/inside_case.jpg" height="200">
+  <img src="photos/ram_upgrade.jpg" height="200">
 </p>
 
 Self-hosted single-node Kubernetes lab built on a Dell Wyse 5070 thin client for infra and automation experiments.
