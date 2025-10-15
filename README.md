@@ -20,18 +20,30 @@ Self-hosted single-node Kubernetes lab built on a Dell Wyse 5070 thin client for
 
 ## Software
 - Ubuntu 24.04 LTS (Server)
-- MicroK8s 1.32 +
-- SSH hardened with UFW
+- MicroK8s 1.32+
+- HashiCorp Vault (secrets management)
+- External Secrets Operator
+- ArgoCD (GitOps)
 
 ## 📚 Documentation
-- 🧠 [hardware/wyse5070.md](hardware/wyse5070.md) — specs, installation steps
-- 💽 [setup/ubuntu-install.md](setup/ubuntu-install.md) — clean 24.04 install
-- ☸️ [setup/microk8s-install.md](setup/microk8s-install.md) — commands & add-ons
-- 🔑 [setup/network-ssh.md](setup/network-ssh.md) — SSH setup, firewall
+
+### Setup
+- 🧠 [hardware/wyse5070.md](hardware/wyse5070.md) — hardware specs
+- 💽 [setup/ubuntu-install.md](setup/ubuntu-install.md) — OS installation
+- ☸️ [setup/microk8s-install.md](setup/microk8s-install.md) — Kubernetes setup
+- 🔑 [setup/network-ssh.md](setup/network-ssh.md) — SSH & firewall
+
+### Infrastructure
+- 🔐 [k8s/vault/](k8s/vault/) — Vault deployment
+- 🔑 [k8s/external-secrets/](k8s/external-secrets/) — External Secrets setup
+
+## Applications
+- [TV Dashboard](https://github.com/navillasa/tv-dashboard-k8s) — TV show tracker
 
 ## Status / Changelog
-- 2025-10-14: Base install complete, ssh from laptop, microk8s up.
+- 2025-10-15: Infrastructure refactor - moved Vault/External Secrets to homelab repo
+- 2025-10-14: Base install complete, MicroK8s running
 
 ## Next
-- Deploy [TV Dashboard K8s](https://github.com/navillasa/tv-dashboard-k8s)
-- Setup backups, Tailscale for remote access
+- Setup backups
+- Add Tailscale for remote access
