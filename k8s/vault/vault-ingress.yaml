@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: vault-ingress
+  namespace: vault
+  annotations:
+    kubernetes.io/ingress.class: "gce"
+    # kubernetes.io/ingress.global-static-ip-name: "monitoring-dashboard-ip"  # Removed - using dynamic IP
+    networking.gke.io/managed-certificates: "vault-ssl"
+    nginx.ingress.kubernetes.io/auth-type: basic
+    nginx.ingress.kubernetes.io/auth-secret: vault-basic-auth
+    nginx.ingress.kubernetes.io/auth-realm: 'TV Dashboard Vault - Demo Environment'
+spec:
+  rules:
+  - host: vault.navillasa.dev
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: vault
+            port:
+              number: 8200
