@@ -34,6 +34,24 @@ sudo ufw allow OpenSSH
 sudo ufw enable
 sudo ufw status
 ```
+## MicroK8s Specific Config
+Make sure to add a UFW rule to allow the pod network to reach only the API port on the node (16443 is the typical microk8s API port):
+```
+sudo ufw allow from [k8s service CIDR] to any port 16443 proto tcp
+```
+Make sure UFW doesn't break CNI traffic. These are typical allows on a Calico/MicroK8s node (harmless no-op if any of these interfaces aren't present):
+```
+# Allow traffic on CNI/Calico interfaces
+sudo ufw allow in on cni0
+sudo ufw allow in on cali+
+sudo ufw allow in on vxlan.calico
+
+# Forwarding usually needs to be ACCEPT for k8s
+sudo sed -i
+'s/^DEFAULT_FORWARD_POLICY=.*/DEFAULT_FORWARD_POLICY="ACCEPT"/'
+/etc/default/ufw
+sudo ufw reload
+```
 
 ## Secure SSH
 ```
