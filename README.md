@@ -47,3 +47,4 @@ Self-hosted single-node Kubernetes lab built on a Dell Wyse 5070 thin client for
 ## Next
 - Setup backups
 - Add Tailscale for remote access
+- Self-host GitLab (git hosting + CI/CD + container registry)
