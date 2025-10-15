@@ -24,7 +24,8 @@ Self-hosted single-node Kubernetes lab built on a Dell Wyse 5070 thin client for
 - HashiCorp Vault (secrets management)
 - External Secrets Operator
 - ArgoCD (GitOps)
-- Tailscale (secure remote access & funnel)
+- Cloudflare Tunnel (public access & SSL)
+- Tailscale (private network access)
 
 ## 📚 Documentation
 
@@ -33,7 +34,8 @@ Self-hosted single-node Kubernetes lab built on a Dell Wyse 5070 thin client for
 - 💽 [setup/ubuntu-install.md](setup/ubuntu-install.md) — OS installation
 - ☸️ [setup/microk8s-install.md](setup/microk8s-install.md) — Kubernetes setup
 - 🔑 [setup/network-ssh.md](setup/network-ssh.md) — SSH & firewall
-- 🌐 [setup/tailscale-install.md](setup/tailscale-install.md) — Tailscale & Funnel
+- ☁️ [setup/cloudflare-tunnel.md](setup/cloudflare-tunnel.md) — Cloudflare Tunnel
+- 🌐 [setup/tailscale-install.md](setup/tailscale-install.md) — Tailscale (optional)
 
 ### Infrastructure
 - 🔐 [k8s/vault/](k8s/vault/) — Vault deployment
