@@ -26,6 +26,7 @@ Self-hosted single-node Kubernetes lab built on a Dell Wyse 5070 thin client for
 - ArgoCD (GitOps)
 - Cloudflare Tunnel (public access & SSL)
 - Tailscale (private network access)
+- Prometheus + Grafana (monitoring)
 
 ## 📚 Documentation
 
@@ -41,14 +42,22 @@ Self-hosted single-node Kubernetes lab built on a Dell Wyse 5070 thin client for
 - 🔐 [k8s/vault/](k8s/vault/) — Vault deployment
 - 🔑 [k8s/external-secrets/](k8s/external-secrets/) — External Secrets setup
 - 🔒 [k8s/cert-manager/](k8s/cert-manager/) — TLS certificate management
+- 📊 [k8s/monitoring/](k8s/monitoring/) — Prometheus + Grafana monitoring stack
 
 ### Guides
 - 🚀 [docs/deploying-apps.md](docs/deploying-apps.md) — Deploying applications to homelab
 
 ## Applications
-- [TV Dashboard](https://github.com/navillasa/tv-dashboard-k8s) — TV show tracker
+- [TV Dashboard](https://github.com/navillasa/tv-dashboard-k8s) — TV show tracker (https://tv-hub.navillasa.dev)
+- [Multi-cloud LLM Router](https://github.com/navillasa/multi-cloud-llm-router) — Demo frontend (https://mini.multicloud.navillasa.dev)
+
+## Services
+- **Grafana**: https://grafana.navillasa.dev (monitoring dashboards)
 
 ## Status / Changelog
+- 2025-10-16: Added cluster monitoring with kube-prometheus-stack (Prometheus + Grafana)
+- 2025-10-16: Deployed multi-cloud-llm-router demo frontend
+- 2025-10-16: Installed Docker for building images locally
 - 2025-10-15: Infrastructure refactor - moved Vault/External Secrets to homelab repo
 - 2025-10-14: Base install complete, MicroK8s running
 
