@@ -42,6 +42,9 @@ Self-hosted single-node Kubernetes lab built on a Dell Wyse 5070 thin client for
 - 🔑 [k8s/external-secrets/](k8s/external-secrets/) — External Secrets setup
 - 🔒 [k8s/cert-manager/](k8s/cert-manager/) — TLS certificate management
 
+### Guides
+- 🚀 [docs/deploying-apps.md](docs/deploying-apps.md) — Deploying applications to homelab
+
 ## Applications
 - [TV Dashboard](https://github.com/navillasa/tv-dashboard-k8s) — TV show tracker
 
