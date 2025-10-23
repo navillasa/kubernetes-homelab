@@ -1,7 +1,9 @@
-# ✨😶‍🌫️ Kubernetes Homelab — Wyse 5070 + Ubuntu + MicroK8s
+# ✨😶‍🌫️ Kubernetes Homelab — Wyse 5070 + Proxmox + MicroK8s
 
+![Proxmox VE](https://img.shields.io/badge/Proxmox-VE%209.0-orange?logo=proxmox)
 ![Ubuntu 24.04](https://img.shields.io/badge/Ubuntu-24.04-orange?logo=ubuntu)
 ![MicroK8s](https://img.shields.io/badge/MicroK8s-1.32%2B-blue?logo=kubernetes)
+![Terraform](https://img.shields.io/badge/Terraform-IaC-purple?logo=terraform)
 
 <p align="center">
   <img src="photos/dell_wyse.jpg" height="200">
@@ -9,7 +11,7 @@
   <img src="photos/ram_upgrade.jpg" height="200">
 </p>
 
-Self-hosted single-node Kubernetes lab built on a Dell Wyse 5070 thin client for infra and automation experiments.
+Self-hosted Kubernetes homelab built on a Dell Wyse 5070 thin client running Proxmox VE with virtualized infrastructure managed by Terraform.
 
 ## Hardware
 - Dell Wyse 5070 (Intel Pentium Silver J5005, quad-core)
@@ -18,8 +20,14 @@ Self-hosted single-node Kubernetes lab built on a Dell Wyse 5070 thin client for
 - Networking: 1x GbE (wired)
 - Power: 65W Dell adapter, small UPS (battery backup)
 
+## Architecture
+- **Hypervisor**: Proxmox VE 9.0 (bare metal)
+- **k8s-node1 VM**: Ubuntu 24.04 LTS (200GB disk, 12GB RAM, 3 cores)
+  - MicroK8s 1.32+
+  - All Kubernetes workloads
+
 ## Software
-- Ubuntu 24.04 LTS (Server)
+- Terraform (VM and Vault infrastructure as code)
 - MicroK8s 1.32+
 - HashiCorp Vault (secrets management)
 - External Secrets Operator
@@ -39,6 +47,7 @@ Self-hosted single-node Kubernetes lab built on a Dell Wyse 5070 thin client for
 - 🌐 [setup/tailscale-install.md](setup/tailscale-install.md) — Tailscale (optional)
 
 ### Infrastructure
+- 🏗️ [terraform/](terraform/) — Terraform IaC for Proxmox VMs and Vault config
 - 🔐 [k8s/vault/](k8s/vault/) — Vault deployment
 - 🔑 [k8s/external-secrets/](k8s/external-secrets/) — External Secrets setup
 - 🔒 [k8s/cert-manager/](k8s/cert-manager/) — TLS certificate management
@@ -55,6 +64,8 @@ Self-hosted single-node Kubernetes lab built on a Dell Wyse 5070 thin client for
 - **Grafana**: https://grafana.navillasa.dev (monitoring dashboards)
 
 ## Status / Changelog
+- 2025-10-23: Migrated from bare metal to Proxmox VE virtualization
+- 2025-10-23: Added Terraform for infrastructure as code (VMs + Vault)
 - 2025-10-16: Added cluster monitoring with kube-prometheus-stack (Prometheus + Grafana)
 - 2025-10-16: Deployed multi-cloud-llm-router demo frontend
 - 2025-10-16: Installed Docker for building images locally
