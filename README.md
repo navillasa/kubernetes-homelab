@@ -6,9 +6,9 @@
 ![Terraform](https://img.shields.io/badge/Terraform-IaC-purple?logo=terraform)
 
 <p align="center">
-  <img src="photos/dell_wyse.jpg" height="200">
-  <img src="photos/inside_case.jpg" height="200">
-  <img src="photos/ram_upgrade.jpg" height="200">
+  <img src="docs/photos/dell_wyse.jpg" height="200">
+  <img src="docs/photos/inside_case.jpg" height="200">
+  <img src="docs/photos/ram_upgrade.jpg" height="200">
 </p>
 
 Self-hosted Kubernetes homelab built on a Dell Wyse 5070 thin client running Proxmox VE with virtualized infrastructure managed by Terraform.
