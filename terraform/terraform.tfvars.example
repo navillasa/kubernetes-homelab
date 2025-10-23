@@ -7,3 +7,8 @@ vault_address = "http://localhost:8200"
 vault_token   = "your-vault-root-token-here"
 
 ssh_public_key = "ssh-ed25519 AAAA... your-key-here"
+
+postgres_user     = "your-postgres-user"
+postgres_password = "your-postgres-password"
+postgres_db       = "your-database-name"
+tmdb_api_key      = "your-tmdb-api-key"

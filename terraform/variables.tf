@@ -41,3 +41,27 @@ variable "ssh_public_key" {
   description = "SSH public key for VMs"
   type        = string
 }
+
+# Application Secrets
+variable "postgres_user" {
+  description = "PostgreSQL username"
+  type        = string
+  sensitive   = true
+}
+
+variable "postgres_password" {
+  description = "PostgreSQL password"
+  type        = string
+  sensitive   = true
+}
+
+variable "postgres_db" {
+  description = "PostgreSQL database name"
+  type        = string
+}
+
+variable "tmdb_api_key" {
+  description = "TMDB API key for TV Dashboard"
+  type        = string
+  sensitive   = true
+}

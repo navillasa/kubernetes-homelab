@@ -42,6 +42,46 @@ resource "vault_kv_secret_v2" "postgres" {
   name                = "postgres"
   delete_all_versions = true
   data_json = jsonencode({
-    password = "homelab-secure-postgres-2024"
+    password = var.postgres_password
+  })
+}
+
+resource "vault_kv_secret_v2" "prod_database" {
+  mount               = vault_mount.secret.path
+  name                = "prod/database"
+  delete_all_versions = true
+  data_json = jsonencode({
+    postgres_user     = var.postgres_user
+    postgres_password = var.postgres_password
+    postgres_db       = var.postgres_db
+  })
+}
+
+resource "vault_kv_secret_v2" "prod_api" {
+  mount               = vault_mount.secret.path
+  name                = "prod/api"
+  delete_all_versions = true
+  data_json = jsonencode({
+    tmdb_api_key = var.tmdb_api_key
+  })
+}
+
+resource "vault_kv_secret_v2" "dev_database" {
+  mount               = vault_mount.secret.path
+  name                = "dev/database"
+  delete_all_versions = true
+  data_json = jsonencode({
+    postgres_user     = var.postgres_user
+    postgres_password = var.postgres_password
+    postgres_db       = var.postgres_db
+  })
+}
+
+resource "vault_kv_secret_v2" "dev_api" {
+  mount               = vault_mount.secret.path
+  name                = "dev/api"
+  delete_all_versions = true
+  data_json = jsonencode({
+    tmdb_api_key = var.tmdb_api_key
   })
 }
