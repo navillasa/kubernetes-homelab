@@ -59,7 +59,7 @@ Self-hosted Kubernetes homelab built on a Dell Wyse 5070 thin client running Pro
 
 ## Applications
 - [TV Dashboard](https://github.com/navillasa/tv-dashboard-k8s) — TV show tracker (https://tv-hub.navillasa.dev)
-- [Multi-cloud LLM Router](https://github.com/navillasa/multi-cloud-llm-router) — Demo frontend (https://mini.multicloud.navillasa.dev)
+- [Multi-cloud LLM Router](https://github.com/navillasa/multi-cloud-llm-router) — Demo frontend (https://demo-multicloud.navillasa.dev)
 
 ## Services
 - **Grafana**: https://grafana.navillasa.dev (monitoring dashboards)
