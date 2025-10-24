@@ -23,18 +23,26 @@ kubectl apply -k .
 
 This creates:
 - `vault` namespace
-- Vault deployment (dev mode for homelab)
-- Service and Ingress
+- Vault deployment (persistent storage mode)
+- Service (internal only, no public ingress)
 - ServiceAccount and RBAC
 - PersistentVolumeClaim for storage
 
-## Initial Setup
+## Accessing Vault
 
-After deploying, you need to initialize and unseal Vault:
+Vault is **internal-only** (no public ingress) for security. Access via port-forward:
 
 ```bash
-# Port forward to Vault
 kubectl port-forward -n vault svc/vault 8200:8200
+# Access at http://localhost:8200
+```
+
+## Initial Setup
+
+After deploying, initialize and unseal Vault:
+
+```bash
+export VAULT_ADDR='http://127.0.0.1:8200'
 
 # Initialize Vault (first time only)
 vault operator init -key-shares=1 -key-threshold=1
@@ -42,60 +50,30 @@ vault operator init -key-shares=1 -key-threshold=1
 # Save the unseal key and root token securely!
 
 # Unseal Vault
-vault operator unseal <UNSEAL_KEY>
+vault operator unseal <YOUR_UNSEAL_KEY>
 
 # Login with root token
-vault login <ROOT_TOKEN>
+vault login <YOUR_ROOT_TOKEN>
 ```
 
 ## Configuration
 
-After Vault is running, configure it for use with External Secrets Operator:
+Vault is configured using **Terraform** (Infrastructure as Code). See `../../terraform/vault.tf` for:
+- Kubernetes authentication backend
+- KV v2 secrets engine
+- Policies for External Secrets Operator
+- Kubernetes auth roles
+- Application secrets (prod and dev)
+
+To apply Vault configuration:
 
 ```bash
-# Enable Kubernetes auth
-vault auth enable kubernetes
-
-# Configure Kubernetes auth
-vault write auth/kubernetes/config \
-  kubernetes_host="https://kubernetes.default.svc:443"
-
-# Enable KV v2 secrets engine (if not already enabled)
-vault secrets enable -path=secret kv-v2
-
-# Create policy for External Secrets Operator
-vault policy write external-secrets-policy - <<EOF
-path "secret/data/*" {
-  capabilities = ["read", "list"]
-}
-path "secret/metadata/*" {
-  capabilities = ["read", "list"]
-}
-EOF
-
-# Create Kubernetes auth role
-vault write auth/kubernetes/role/external-secrets \
-  bound_service_account_names=external-secrets-sa \
-  bound_service_account_namespaces=tv-dashboard-prod \
-  policies=external-secrets-policy \
-  ttl=24h
+cd ../../terraform
+terraform init
+terraform apply
 ```
 
-## Adding Secrets
-
-Store secrets for your applications:
-
-```bash
-# Database credentials for tv-dashboard
-vault kv put secret/prod/database \
-  postgres_user=myuser \
-  postgres_password=mypassword \
-  postgres_db=tvshows
-
-# API keys for tv-dashboard
-vault kv put secret/prod/api \
-  tmdb_api_key=your_api_key_here
-```
+This automatically configures Vault and creates all necessary secrets from `terraform.tfvars`.
 
 ## Maintenance
 
@@ -106,24 +84,28 @@ kubectl logs -n vault deployment/vault
 ```
 
 ### Unseal After Restart
-Vault in dev mode auto-unseals, but in production mode you'd need to unseal after pod restarts:
+Vault needs to be unsealed after pod restarts:
 ```bash
 kubectl port-forward -n vault svc/vault 8200:8200
-vault operator unseal <UNSEAL_KEY>
+export VAULT_ADDR='http://127.0.0.1:8200'
+vault operator unseal <YOUR_UNSEAL_KEY>
 ```
 
 ### Backup
-Important files to back up securely (NOT in git):
+Important files to back up securely:
 - Unseal key(s)
 - Root token
-- Recovery keys (if using auto-unseal)
+- Vault data (PVC backup recommended)
 
 ## Notes
 
-- This is a **development Vault setup** suitable for homelab
-- For production, use:
+- This is a **homelab Vault setup** with persistent storage
+- Single-node deployment (no HA)
+- Internal-only access (no public exposure)
+- Secrets configured via Terraform (Infrastructure as Code)
+- For enterprise production, consider:
   - HA deployment (multiple replicas)
   - Auto-unseal with cloud KMS
-  - Proper backup and DR procedures
+  - Comprehensive backup and DR procedures
   - TLS/mTLS for all connections
-- Dev mode Vault stores data in memory - use persistent storage for production
+  - Vault Enterprise features

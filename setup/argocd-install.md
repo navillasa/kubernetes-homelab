@@ -14,6 +14,20 @@ kubectl wait --for=condition=available --timeout=300s \
   deployment/argocd-server -n argocd
 ```
 
+## Install ArgoCD CLI
+
+```bash
+# Download and install latest version
+curl -sSL -o /tmp/argocd-linux-amd64 https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
+sudo install -m 555 /tmp/argocd-linux-amd64 /usr/local/bin/argocd
+rm /tmp/argocd-linux-amd64
+
+# Verify
+argocd version --client
+```
+
+See [ArgoCD CLI docs](https://argo-cd.readthedocs.io/en/stable/user-guide/commands/argocd/) for full command reference.
+
 ## Access ArgoCD UI
 
 ### Get admin password

@@ -13,13 +13,6 @@
 
 Self-hosted Kubernetes homelab built on a Dell Wyse 5070 thin client running Proxmox VE with virtualized infrastructure managed by Terraform.
 
-## Hardware
-- Dell Wyse 5070 (Intel Pentium Silver J5005, quad-core)
-- RAM: 16 GB DDR4 RAM
-- Storage: 512 GB M.2 SATA SSD (TeamGroup MS30)
-- Networking: 1x GbE (wired)
-- Power: 65W Dell adapter, small UPS (battery backup)
-
 ## Architecture
 - **Hypervisor**: Proxmox VE 9.0 (bare metal)
 - **k8s-node1 VM**: Ubuntu 24.04 LTS (200GB disk, 12GB RAM, 3 cores)
@@ -36,15 +29,23 @@ Self-hosted Kubernetes homelab built on a Dell Wyse 5070 thin client running Pro
 - Tailscale (private network access)
 - Prometheus + Grafana (monitoring)
 
+## Hardware
+- Dell Wyse 5070 (Intel Pentium Silver J5005, quad-core)
+- RAM: 16 GB DDR4 RAM
+- Storage: 512 GB M.2 SATA SSD (TeamGroup MS30)
+- Networking: 1x GbE (wired)
+- Power: 65W Dell adapter, small UPS (battery backup)
+
 ## 📚 Documentation
 
 ### Setup
 - 🧠 [hardware/wyse5070.md](hardware/wyse5070.md) — hardware specs
-- 💽 [setup/ubuntu-install.md](setup/ubuntu-install.md) — OS installation
+- 🖥️ [setup/proxmox-install.md](setup/proxmox-install.md) — Proxmox VE installation
+- 💽 [setup/ubuntu-vm-install.md](setup/ubuntu-vm-install.md) — Ubuntu VM creation
 - ☸️ [setup/microk8s-install.md](setup/microk8s-install.md) — Kubernetes setup
 - 🔑 [setup/network-ssh.md](setup/network-ssh.md) — SSH & firewall
 - ☁️ [setup/cloudflare-tunnel.md](setup/cloudflare-tunnel.md) — Cloudflare Tunnel
-- 🌐 [setup/tailscale-install.md](setup/tailscale-install.md) — Tailscale (optional)
+- 🌐 [setup/tailscale-install.md](setup/tailscale-install.md) — Tailscale
 
 ### Infrastructure
 - 🏗️ [terraform/](terraform/) — Terraform IaC for Proxmox VMs and Vault config

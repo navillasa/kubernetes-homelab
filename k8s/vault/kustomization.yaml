@@ -8,8 +8,6 @@ resources:
 - vault-configmap.yaml
 - vault-deployment.yaml
 - vault-service.yaml
-- vault-ingress.yaml
-- vault-certificate.yaml
 
 labels:
 - pairs:
