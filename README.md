@@ -54,6 +54,10 @@ Self-hosted Kubernetes homelab built on a Dell Wyse 5070 thin client running Pro
 - 🔒 [k8s/cert-manager/](k8s/cert-manager/) — TLS certificate management
 - 📊 [k8s/monitoring/](k8s/monitoring/) — Prometheus + Grafana monitoring stack
 
+### Operations
+- 💾 [docs/backups.md](docs/backups.md) — Backup and restore procedures
+- 🔌 [scripts/shutdown-homelab.sh](scripts/shutdown-homelab.sh) — Graceful shutdown script
+
 ### Guides
 - 🚀 [docs/deploying-apps.md](docs/deploying-apps.md) — Deploying applications to homelab
 
@@ -69,8 +73,11 @@ Self-hosted Kubernetes homelab built on a Dell Wyse 5070 thin client running Pro
 </p>
 
 ## Status / Changelog
+- 2025-10-27: Added backup scripts for Vault, databases, and configs
+- 2025-10-27: Fixed Grafana dashboard auto-loading from ConfigMaps
 - 2025-10-23: Migrated from bare metal to Proxmox VE virtualization
 - 2025-10-23: Added Terraform for infrastructure as code (VMs + Vault)
+- 2025-10-23: Installed Tailscale for remote access
 - 2025-10-16: Added cluster monitoring with kube-prometheus-stack (Prometheus + Grafana)
 - 2025-10-16: Deployed multi-cloud-llm-router demo frontend
 - 2025-10-16: Installed Docker for building images locally
@@ -78,6 +85,5 @@ Self-hosted Kubernetes homelab built on a Dell Wyse 5070 thin client running Pro
 - 2025-10-14: Base install complete, MicroK8s running
 
 ## Next
-- Setup backups
-- Add Tailscale for remote access
 - Self-host GitLab (git hosting + CI/CD + container registry)
+- Add monitoring alerts via Alertmanager
