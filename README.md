@@ -64,6 +64,10 @@ Self-hosted Kubernetes homelab built on a Dell Wyse 5070 thin client running Pro
 ## Services
 - **Grafana**: https://grafana.navillasa.dev (monitoring dashboards)
 
+<p align="center">
+  <img src="docs/photos/dashboard-k8s-compute-resources-cluster.png" alt="Grafana Kubernetes Dashboard" width="800">
+</p>
+
 ## Status / Changelog
 - 2025-10-23: Migrated from bare metal to Proxmox VE virtualization
 - 2025-10-23: Added Terraform for infrastructure as code (VMs + Vault)

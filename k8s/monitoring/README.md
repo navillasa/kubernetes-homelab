@@ -60,18 +60,35 @@ Installed via Helm in the `monitoring` namespace.
 
 ### Helm Values
 
-The following custom values are used (stored on wyse at `~/kube-prometheus-stack-values.yaml`):
+The following custom values are used (stored on node1 at `~/kube-prometheus-stack-values.yaml`):
 
 ```yaml
 grafana:
   enabled: true
+
   ingress:
     enabled: true
     ingressClassName: public
     hosts:
       - grafana.navillasa.dev
     annotations:
+      cert-manager.io/cluster-issuer: "letsencrypt-prod"
       nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    tls:
+      - secretName: grafana-tls
+        hosts:
+          - grafana.navillasa.dev
+
+  # MicroK8s-specific: skip TLS verification for dashboard sidecar
+  sidecar:
+    dashboards:
+      enabled: true
+      env:
+        SKIP_TLS_VERIFY: "true"
+    datasources:
+      enabled: true
+      env:
+        SKIP_TLS_VERIFY: "true"
 
 prometheus:
   prometheusSpec:
@@ -129,7 +146,7 @@ SSL Mode: **Flexible** (Cloudflare terminates SSL, tunnel to homelab is HTTP)
 
 ### Pre-installed Dashboards
 
-The stack includes dozens of pre-built dashboards. Key ones to check:
+The stack includes 28 pre-built dashboards automatically provisioned from ConfigMaps. Key ones to check:
 
 **Kubernetes Cluster Monitoring**:
 - Browse → Dashboards → search "Kubernetes"
@@ -138,11 +155,13 @@ The stack includes dozens of pre-built dashboards. Key ones to check:
 - "Kubernetes / Compute Resources / Pod" - individual pod metrics
 
 **Node Monitoring**:
-- "Node Exporter / Nodes" - CPU, memory, disk, network for wyse-node1
+- "Node Exporter / Nodes" - CPU, memory, disk, network for k8s-node1
 
 **Application Metrics** (if apps expose Prometheus metrics):
 - Look for ServiceMonitor resources per application
 - TV Dashboard backend exposes metrics at `/metrics`
+
+**Note**: Dashboards are automatically loaded by the Grafana sidecar from ConfigMaps on every pod restart. No manual import needed.
 
 ### Creating Custom Dashboards
 
