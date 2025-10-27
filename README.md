@@ -13,6 +13,13 @@
 
 Self-hosted Kubernetes homelab built on a Dell Wyse 5070 thin client running Proxmox VE with virtualized infrastructure managed by Terraform.
 
+## Hardware
+- Dell Wyse 5070 (Intel Pentium Silver J5005, quad-core)
+- RAM: 16 GB DDR4 RAM
+- Storage: 512 GB M.2 SATA SSD (TeamGroup MS30)
+- Networking: 1x GbE (wired)
+- Power: 65W Dell adapter, small UPS (battery backup)
+
 ## Architecture
 - **Hypervisor**: Proxmox VE 9.0 (bare metal)
 - **k8s-node1 VM**: Ubuntu 24.04 LTS (200GB disk, 12GB RAM, 3 cores)
@@ -48,13 +55,6 @@ AI gateway and intelligent request router for large language models across cloud
 <p align="center">
   <img src="docs/photos/dashboard-k8s-compute-resources-cluster.png" alt="Grafana Kubernetes Dashboard" width="800">
 </p>
-
-## Hardware
-- Dell Wyse 5070 (Intel Pentium Silver J5005, quad-core)
-- RAM: 16 GB DDR4 RAM
-- Storage: 512 GB M.2 SATA SSD (TeamGroup MS30)
-- Networking: 1x GbE (wired)
-- Power: 65W Dell adapter, small UPS (battery backup)
 
 ## 📚 Documentation
 
