@@ -13,6 +13,13 @@
 
 Self-hosted Kubernetes homelab built on a Dell Wyse 5070 thin client running Proxmox VE with virtualized infrastructure managed by Terraform.
 
+## Services
+- **Grafana**: https://grafana.navillasa.dev (monitoring dashboards)
+
+<p align="center">
+  <img src="docs/photos/dashboard-k8s-compute-resources-cluster.png" alt="Grafana Kubernetes Dashboard" width="800">
+</p>
+
 ## Applications
 
 ### [TV Dashboard](https://github.com/navillasa/tv-dashboard-k8s)
@@ -25,13 +32,6 @@ Full-stack TV show tracking application with PostgreSQL backend. Multi-platform 
 AI gateway and intelligent request router for large language models across cloud providers (Azure OpenAI, GCP Vertex AI, AWS Bedrock). Built with Go, manages model selection, load balancing, failover, and cost optimization across multiple LLM backends. Infrastructure provisioned via Pulumi supporting multi-cloud deployments (Azure, GCP, AWS). Frontend demo deployed on homelab.
 
 - **Demo**: https://demo-multicloud.navillasa.dev
-
-## Services
-- **Grafana**: https://grafana.navillasa.dev (monitoring dashboards)
-
-<p align="center">
-  <img src="docs/photos/dashboard-k8s-compute-resources-cluster.png" alt="Grafana Kubernetes Dashboard" width="800">
-</p>
 
 ## Architecture
 - **Hypervisor**: Proxmox VE 9.0 (bare metal)
