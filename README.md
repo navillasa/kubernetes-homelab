@@ -1,4 +1,4 @@
-# ✨😶‍🌫️ Kubernetes Homelab — Wyse 5070 + Proxmox + MicroK8s
+# ✨😶‍🌫️ Kubernetes Homelab: Wyse 5070 + Proxmox + MicroK8s
 
 ![Proxmox VE](https://img.shields.io/badge/Proxmox-VE%209.0-orange?logo=proxmox)
 ![Ubuntu 24.04](https://img.shields.io/badge/Ubuntu-24.04-orange?logo=ubuntu)
@@ -12,6 +12,26 @@
 </p>
 
 Self-hosted Kubernetes homelab built on a Dell Wyse 5070 thin client running Proxmox VE with virtualized infrastructure managed by Terraform.
+
+## Applications
+
+### [TV Dashboard](https://github.com/navillasa/tv-dashboard-k8s)
+Full-stack TV show tracking application with PostgreSQL backend. Multi-platform deployment supporting both homelab (MicroK8s) and GKE Autopilot with environment-specific Kustomize overlays. Implements GitOps via ArgoCD with GitHub Actions CI/CD pipeline featuring automated builds, container registry push, and manual promotion workflow between environments.
+
+- **Prod**: https://tv-hub.navillasa.dev
+- **Dev**: https://tv-hub-dev.navillasa.dev
+
+### [Multi-cloud LLM Router](https://github.com/navillasa/multi-cloud-llm-router)
+AI gateway and intelligent request router for large language models across cloud providers (Azure OpenAI, GCP Vertex AI, AWS Bedrock). Built with Go, manages model selection, load balancing, failover, and cost optimization across multiple LLM backends. Infrastructure provisioned via Pulumi supporting multi-cloud deployments (Azure, GCP, AWS). Frontend demo deployed on homelab.
+
+- **Demo**: https://demo-multicloud.navillasa.dev
+
+## Services
+- **Grafana**: https://grafana.navillasa.dev (monitoring dashboards)
+
+<p align="center">
+  <img src="docs/photos/dashboard-k8s-compute-resources-cluster.png" alt="Grafana Kubernetes Dashboard" width="800">
+</p>
 
 ## Architecture
 - **Hypervisor**: Proxmox VE 9.0 (bare metal)
@@ -39,7 +59,7 @@ Self-hosted Kubernetes homelab built on a Dell Wyse 5070 thin client running Pro
 ## 📚 Documentation
 
 ### Setup
-- 🧠 [hardware/wyse5070.md](hardware/wyse5070.md) — hardware specs
+- 🧠 [hardware/wyse5070.md](hardware/wyse5070.md) — Hardware specs
 - 🖥️ [setup/proxmox-install.md](setup/proxmox-install.md) — Proxmox VE installation
 - 💽 [setup/ubuntu-vm-install.md](setup/ubuntu-vm-install.md) — Ubuntu VM creation
 - ☸️ [setup/microk8s-install.md](setup/microk8s-install.md) — Kubernetes setup
@@ -60,17 +80,6 @@ Self-hosted Kubernetes homelab built on a Dell Wyse 5070 thin client running Pro
 
 ### Guides
 - 🚀 [docs/deploying-apps.md](docs/deploying-apps.md) — Deploying applications to homelab
-
-## Applications
-- [TV Dashboard](https://github.com/navillasa/tv-dashboard-k8s) — TV show tracker (https://tv-hub.navillasa.dev)
-- [Multi-cloud LLM Router](https://github.com/navillasa/multi-cloud-llm-router) — Demo frontend (https://demo-multicloud.navillasa.dev)
-
-## Services
-- **Grafana**: https://grafana.navillasa.dev (monitoring dashboards)
-
-<p align="center">
-  <img src="docs/photos/dashboard-k8s-compute-resources-cluster.png" alt="Grafana Kubernetes Dashboard" width="800">
-</p>
 
 ## Status / Changelog
 - 2025-10-27: Added backup scripts for Vault, databases, and configs
