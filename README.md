@@ -45,7 +45,7 @@ Full-stack TV show tracking application with PostgreSQL backend. Multi-platform 
 - **Dev**: https://tv-hub-dev.navillasa.dev
 
 ### [Multi-cloud LLM Router](https://github.com/navillasa/multi-cloud-llm-router)
-AI gateway and intelligent request router for large language models across cloud providers (Azure OpenAI, GCP Vertex AI, AWS Bedrock). Built with Go, manages model selection, load balancing, failover, and cost optimization across multiple LLM backends. Infrastructure provisioned via Pulumi supporting multi-cloud deployments (Azure, GCP, AWS). Frontend demo deployed on homelab.
+AI gateway and intelligent request router for large language models. Built with Go, routes requests across enterprise APIs (OpenAI, Claude, Gemini) and self-hosted LLM deployments (Azure, GCP, AWS). Implements intelligent routing based on configurable criteria: cost optimization, latency prioritization, model availability, and failover handling. Infrastructure provisioned via Pulumi for multi-cloud LLM deployments. Frontend demo deployed on homelab.
 
 - **Demo**: https://demo-multicloud.navillasa.dev
 
