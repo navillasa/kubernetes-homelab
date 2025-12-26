@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: mini-llm-monitoring-home-redirect
+  namespace: monitoring
+  annotations:
+    nginx.ingress.kubernetes.io/permanent-redirect: https://mini-llm-monitoring.navillasa.dev/d/mini-llm-metrics/mini-llm-metrics?orgId=1&from=now-6h&to=now&timezone=browser
+spec:
+  ingressClassName: public
+  rules:
+  - host: mini-llm-monitoring.navillasa.dev
+    http:
+      paths:
+      - path: /
+        pathType: Exact
+        backend:
+          service:
+            name: kube-prometheus-stack-grafana
+            port:
+              number: 80

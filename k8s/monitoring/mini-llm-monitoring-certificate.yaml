@@ -1,0 +1,12 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: mini-llm-monitoring-tls
+  namespace: monitoring
+spec:
+  secretName: mini-llm-monitoring-tls
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  dnsNames:
+  - mini-llm-monitoring.navillasa.dev
