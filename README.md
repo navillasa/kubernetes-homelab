@@ -82,6 +82,8 @@ AI gateway and intelligent request router for large language models. Built with 
 - 🚀 [docs/deploying-apps.md](docs/deploying-apps.md) — Deploying applications to homelab
 
 ## Status / Changelog
+- 2025-12-27: Configure AlertManager to send alerts to my email
+- 2025-12-25: Get Mini LLM project successfully hosted
 - 2025-10-27: Added backup scripts for Vault, databases, and configs
 - 2025-10-27: Fixed Grafana dashboard auto-loading from ConfigMaps
 - 2025-10-23: Migrated from bare metal to Proxmox VE virtualization
@@ -95,4 +97,4 @@ AI gateway and intelligent request router for large language models. Built with 
 
 ## Next
 - Self-host GitLab (git hosting + CI/CD + container registry)
-- Add monitoring alerts via Alertmanager
+- Install second node
