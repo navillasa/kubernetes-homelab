@@ -38,6 +38,12 @@ Self-hosted Kubernetes homelab built on a Dell Wyse 5070 thin client running Pro
 
 ## Applications
 
+### [Mini LLM](https://github.com/navillasa/self-hosted-mini-llm)
+LLM chat application with GitHub OAuth authentication and CPU-only inference. Uses llama-cpp-python which had to be custom-compiled on the homelab's legacy hardware in order to run Llama 3.2 1B. Implements asynchronous inference, Prometheus metrics collection, and public monitoring dashboard. GitOps deployment via ArgoCD with GitHub Actions CI/CD featuring security scanning (Trivy), linting workflows, and automated image builds to GHCR.
+
+- **Dev**: https://mini-llm.navillasa.dev
+- **Monitoring**: https://mini-llm-monitoring.navillasa.dev
+
 ### [TV Dashboard](https://github.com/navillasa/tv-dashboard-k8s)
 Full-stack TV show tracking application with PostgreSQL backend. Multi-platform deployment supporting both homelab (MicroK8s) and GKE Autopilot with environment-specific Kustomize overlays. Implements GitOps via ArgoCD with GitHub Actions CI/CD pipeline featuring automated builds, container registry push, and manual promotion workflow between environments.
 
