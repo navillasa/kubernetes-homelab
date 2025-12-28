@@ -36,6 +36,13 @@ Self-hosted Kubernetes homelab built on a Dell Wyse 5070 thin client running Pro
 - Tailscale (private network access)
 - Prometheus + Grafana (monitoring)
 
+## Services
+- **Grafana**: https://grafana.navillasa.dev (monitoring dashboards)
+
+<p align="center">
+  <img src="docs/photos/dashboard-k8s-compute-resources-cluster.png" alt="Grafana Kubernetes Dashboard" width="800">
+</p>
+
 ## Applications
 
 ### [Mini LLM](https://github.com/navillasa/self-hosted-mini-llm)
@@ -54,13 +61,6 @@ Full-stack TV show tracking application with PostgreSQL backend. Multi-platform 
 AI gateway and intelligent request router for large language models. Built with Go, routes requests across enterprise APIs (OpenAI, Claude, Gemini) and self-hosted LLM deployments (Azure, GCP, AWS). Implements intelligent routing based on configurable criteria: cost optimization, latency prioritization, model availability, and failover handling. Infrastructure provisioned via Pulumi for multi-cloud LLM deployments. Frontend demo deployed on homelab.
 
 - **Demo**: https://demo-multicloud.navillasa.dev
-
-## Services
-- **Grafana**: https://grafana.navillasa.dev (monitoring dashboards)
-
-<p align="center">
-  <img src="docs/photos/dashboard-k8s-compute-resources-cluster.png" alt="Grafana Kubernetes Dashboard" width="800">
-</p>
 
 ## 📚 Documentation
 
