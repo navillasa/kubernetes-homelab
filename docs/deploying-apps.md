@@ -79,7 +79,7 @@ images:
 SSH into homelab and store application secrets in Vault:
 
 ```bash
-ssh wyse
+ssh node1
 
 # Set Vault environment variables
 export VAULT_ADDR='http://vault.vault.svc.cluster.local:8200'
@@ -186,7 +186,7 @@ spec:
 Add your application's subdomain to the Cloudflare Tunnel configuration:
 
 ```bash
-ssh wyse
+ssh node1
 sudo nano /etc/cloudflared/config.yml
 ```
 
@@ -222,7 +222,7 @@ sudo systemctl status cloudflared
 Create an ArgoCD Application to deploy your app:
 
 ```bash
-ssh wyse
+ssh node1
 
 argocd app create myapp-prod \
   --repo https://github.com/username/myapp.git \
@@ -298,7 +298,7 @@ microk8s kubectl logs -n myapp-prod deployment/prod-backend -f
 Test the application:
 
 ```bash
-# From wyse
+# From node1
 curl -H "Host: myapp.navillasa.dev" http://localhost/
 
 # From anywhere
@@ -394,7 +394,7 @@ images:
 ### Update Secrets
 
 ```bash
-ssh wyse
+ssh node1
 export VAULT_ADDR='http://vault.vault.svc.cluster.local:8200'
 export VAULT_TOKEN='hvs.your-root-token'
 
@@ -456,7 +456,7 @@ microk8s kubectl get svc -n myapp-prod
 
 ### Site Not Accessible Publicly
 
-**Symptoms:** Site works from wyse localhost but not from internet.
+**Symptoms:** Site works from node1 localhost but not from internet.
 
 **Solution:**
 

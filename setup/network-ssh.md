@@ -19,13 +19,13 @@ ssh-copy-id -i ~/.ssh/[pubkey] <user>@<server-ip>
 ## Config shortcut
 Add to `~/.ssh/config`:
 ```
-Host wyse
+Host node1
     HostName [IP]
     User [user]
     IdentityFile ~/.ssh/[key]
 ```
 
-Then `ssh wyse`.
+Then `ssh node1`.
 
 ## Firewall (ufw)
 ```

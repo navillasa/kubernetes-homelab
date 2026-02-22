@@ -82,6 +82,8 @@ AI gateway and intelligent request router for large language models. Built with 
 
 ### Operations
 - 💾 [docs/backups.md](docs/backups.md) — Backup and restore procedures
+- ⚡ [docs/power-outage.md](docs/power-outage.md) — Power outage recovery
+- 🚀 [scripts/startup-homelab.sh](scripts/startup-homelab.sh) — Startup script (run from laptop)
 - 🔌 [scripts/shutdown-homelab.sh](scripts/shutdown-homelab.sh) — Graceful shutdown script
 
 ### Guides

@@ -19,7 +19,7 @@ The monitoring stack automatically collects metrics from:
 
 - **Kubernetes cluster**: CPU, memory, disk, network
 - **All pods and containers** across all namespaces
-- **Nodes**: Host-level metrics from wyse-node1
+- **Nodes**: Host-level metrics from node1
 - **System components**: kubelet, kube-apiserver, etc.
 - **Applications**:
   - TV Dashboard (backend, frontend, postgres)
